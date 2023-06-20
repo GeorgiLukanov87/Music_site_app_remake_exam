@@ -2,8 +2,8 @@
 {% block content %}
 
     <section id="detailsPage">
-        <div class="wrapper">
-            <div class="profileText">
+        <div style="width: 350px;height: 350px" class="wrapper">
+            <div style="width:250px;height: 250px" class="profileText">
                 <h1>Are you sure you want to delete your profile?</h1>
                 <form method="post" action="{% url 'profile-delete' %}">
 
@@ -11,7 +11,11 @@
                     {% csrf_token %}
 
                     <button class="delete-profile" type="submit">Delete</button>
+
                 </form>
+                <button class="delete-profile">
+                    <a class="delete-profile" href="{% url 'index' %}" style="text-decoration: none">Back</a>
+                </button>
             </div>
         </div>
     </section>
