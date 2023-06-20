@@ -1,9 +1,9 @@
-<!-- Catalog with Albums-->
-<section id="catalogPage">
+{% extends 'base.html' %}
+{% block content %}
 
+<section id="catalogPage">
     <!--  If No albums in catalog -->
     <p>No Albums in Catalog!</p>
-
     <!-- If albums in catalog -->
     <h1>All Albums</h1>
     <!-- First Card-Box in catalog -->
@@ -40,21 +40,8 @@
     </div>
     <!-- End Second Card-Box in catalog -->
 
-    <!-- Third Card-Box in catalog -->
-    <div class="card-box">
-        <img src="/static/images/Lorde.jpg">
-        <div>
-            <div class="text-center">
-                <p class="name">Name: Melodrama</p>
-                <p class="artist">Artist: Lorde</p>
-                <p class="genre">Genre: Pop Music</p>
-                <p class="price">Price: $7.33</p>
-            </div>
-            <div class="btn-group">
-                <a href="#">Details</a>
-            </div>
-        </div>
-    </div>
-    <!-- End Third Card-Box in catalog -->
+
 
 </section>
+
+{% endblock %}
