@@ -1,8 +1,15 @@
 from django.shortcuts import render, redirect
 
+from Music_site_app_remake_exam.my_web.models import ProfileModel
+
+
+def get_profile():
+    return ProfileModel.objects.first()
+
 
 def index(request):
-    profile = None
+    profile = get_profile()
+
     if profile is None:
         return redirect('profile-create')
 
