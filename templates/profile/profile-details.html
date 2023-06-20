@@ -15,7 +15,9 @@
                     <h1>Email: {{ profile.email }}</h1>
                     <h1>Age: {{ profile.age }}</h1>
                     <h1>Albums: {{ albums.count }}</h1>
+                    <h1>Total Albums cost: {{ total_sum|floatformat:2 }}$$</h1>
                 </div>
+
                 <div class="actionBtn">
                     <a href="{% url 'profile-delete' %}" class="remove">Delete</a>
                 </div>
