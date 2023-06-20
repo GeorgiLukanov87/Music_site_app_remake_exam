@@ -15,6 +15,12 @@ def validate_username(value):
             raise ValidationError(ERROR_MESSAGE)
 
 
+def price_cannot_be_below_zero(value):
+    ERROR_MESSAGE = 'The price cannot be below 0.0!'
+    if value < 0:
+        raise ValidationError(ERROR_MESSAGE)
+
+
 class ProfileModel(models.Model):
     USERNAME_MAX_LEN = 15
     USERNAME_MIN_LEN = 2
@@ -32,4 +38,47 @@ class ProfileModel(models.Model):
     age = models.PositiveIntegerField(
         blank=True,
         null=True,
+    )
+
+
+class AlbumModel(models.Model):
+    ALBUM_NAME_MAX_LEN = 30
+    ARTIST_MAX_LEN = 30
+    GENRE_CHOICES = (
+        ("Pop Music", "1-Pop Music"),
+        ("Jazz Music", "2-Jazz Music"),
+        ("R&B Music", "3-R&B Music"),
+        ("Rock Music", "4-Rock Music"),
+        ("Country Music", "5-Country Music"),
+        ("Dance Music", "6-Dance Music"),
+        ("Hip Hop Music", "7-Hip Hop Music"),
+        ("Other", "8-Other"),
+    )
+
+    album_name = models.CharField(
+        max_length=ALBUM_NAME_MAX_LEN,
+        unique=True,
+    )
+
+    artist = models.CharField(
+        max_length=ARTIST_MAX_LEN,
+    )
+
+    genre = models.CharField(
+        max_length=30,
+        choices=GENRE_CHOICES,
+    )
+
+    description = models.TextField(
+        blank=True,
+        null=True,
+    )
+
+    image_url = models.URLField()
+
+    price = models.FloatField(
+        default=0,
+        validators=[
+            price_cannot_be_below_zero,
+        ]
     )
