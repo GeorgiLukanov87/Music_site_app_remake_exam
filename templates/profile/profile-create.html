@@ -13,21 +13,14 @@
             </div>
         </section>
 
-        <!-- Registration -->
         <section id="registerPage">
-            <form>
+            <form method="post" action="{% url 'profile-create' %}">
                 <fieldset>
                     <legend>Profile</legend>
-                    <!-- Form for Registration -->
-                    <label for="username">Username:</label>
-                    <input id="username" name="username" type="text" placeholder="Username">
 
-                    <label for="email">Email:</label>
-                    <input id="email" name="email" type="email" placeholder="Email">
+                    {{ form }}
+                    {% csrf_token %}
 
-                    <label for="age">Age:</label>
-                    <input id="age" name="age" type="number" min="0" placeholder="Age">
-                    <!-- Button to Create Profile -->
                     <button type="submit" class="register">Enter</button>
                 </fieldset>
             </form>

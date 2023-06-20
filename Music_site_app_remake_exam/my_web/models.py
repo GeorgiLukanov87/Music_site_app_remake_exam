@@ -35,6 +35,7 @@ class ProfileModel(models.Model):
     )
 
     email = models.EmailField()
+
     age = models.PositiveIntegerField(
         blank=True,
         null=True,
@@ -77,7 +78,6 @@ class AlbumModel(models.Model):
     image_url = models.URLField()
 
     price = models.FloatField(
-        default=0,
         validators=[
             price_cannot_be_below_zero,
         ]
