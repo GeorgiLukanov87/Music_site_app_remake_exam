@@ -41,6 +41,9 @@ def profile_create(request):
 
 def profile_details(request):
     profile = get_profile()
+    if profile is None:
+        return redirect('profile-create')
+
     albums = AlbumModel.objects.all()
     context = {'profile': profile, 'albums': albums, }
     return render(request, 'profile/profile-details.html', context, )
@@ -63,6 +66,8 @@ def profile_delete(request):
 
 def album_add(request):
     profile = get_profile()
+    if profile is None:
+        return redirect('profile-create')
 
     if request.method == 'GET':
         form = AlbumCreateForm()
