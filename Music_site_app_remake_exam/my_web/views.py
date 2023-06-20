@@ -47,7 +47,7 @@ def profile_details(request):
     albums = AlbumModel.objects.all()
     total_sum = sum(float(a.price) for a in albums)
 
-    context = {'profile': profile, 'albums': albums, 'total_sum': total_sum, }
+    context = {'profile': profile, 'albums': albums,'total_sum':total_sum, }
     return render(request, 'profile/profile-details.html', context, )
 
 

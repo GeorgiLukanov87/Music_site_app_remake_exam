@@ -33,7 +33,6 @@ class ProfileCreateForm(ProfileBaseForm):
 class ProfileDeleteForm(ProfileBaseForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.__disable_fields()
 
     def save(self, commit=True):
         if commit:
@@ -41,10 +40,9 @@ class ProfileDeleteForm(ProfileBaseForm):
             AlbumModel.objects.all().delete()
         return self.instance
 
-    def __disable_fields(self):
-        for field in self.fields.values():
-            field.widget.attrs['disabled'] = True
-            field.required = False
+    class Meta:
+        model = ProfileModel
+        fields = ()
 
 
 class AlbumBaseForm(forms.ModelForm):
