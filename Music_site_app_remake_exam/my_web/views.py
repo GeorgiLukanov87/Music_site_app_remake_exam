@@ -14,24 +14,24 @@ def profile_create(request):
 
 
 def profile_details(request):
-    return render(request, '/')
+    return render(request, 'profile/profile-details.html')
 
 
 def profile_delete(request):
-    return render(request, '/')
+    return render(request, 'profile/profile-delete.html')
 
 
 def album_add(request):
-    return render(request, '/')
+    return render(request, 'album/add-album.html')
 
 
-def album_details(request):
-    return render(request, '/')
+def album_details(request, pk):
+    return render(request, 'album/album-details.html')
 
 
-def album_edit(request):
-    return render(request, '/')
+def album_edit(request, pk):
+    return render(request, 'album/edit-album.html')
 
 
-def album_delete(request):
-    return render(request, '/')
+def album_delete(request, pk):
+    return render(request, 'album/delete-album.html')
