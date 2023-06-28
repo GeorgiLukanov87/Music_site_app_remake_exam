@@ -49,6 +49,7 @@ class AlbumBaseForm(forms.ModelForm):
     class Meta:
         model = AlbumModel
         fields = '__all__'
+
         labels = {
             'image_url': 'Image URL'
         }
@@ -103,4 +104,5 @@ class AlbumDeleteForm(AlbumBaseForm):
     def __disable_fields(self):
         for field in self.fields.values():
             field.widget.attrs['disabled'] = True
+            field.widget.attrs['readonly'] = True
             field.required = False
